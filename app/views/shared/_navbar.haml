@@ -1,0 +1,29 @@
+%nav#main-menu.teal.accent-4      
+  .container
+    .nav-wrapper.img-logo  
+      = link_to image_tag('it-printing.png'), root_path  
+      -# = link_to 'IT Wedding Helper', root_path, class: 'brand-logo'
+      %ul.right.hide-on-med-and-down
+        - if current_user
+          %ul
+            %li= current_user.email
+            %li= link_to "Log out", logout_path, method: "delete"
+        - else
+          %ul
+            %li= link_to "Login", 'login'
+            %li= link_to "Signup", 'signup'
+      %ul#nav-mobile.side-nav
+        - if current_user
+          %ul
+            %li= current_user.email
+            %li= link_to "Log out", logout_path, method: "delete"
+        - else
+          %ul
+            %li= link_to "Login", 'login'
+            %li= link_to "Signup", 'signup'
+            
+      = link_to '#', { class: 'button-collapse', 'data-activates': 'nav-mobile'} do
+        %i.material-icons
+          menu
+        -# = link_to root_path do
+        -#   = image_tag image_path('it-printing.png')

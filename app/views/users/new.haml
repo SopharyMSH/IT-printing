@@ -1,14 +1,18 @@
 .login
   .container
     .form
-      %h1 Sign up
+      %h1.center-align Sign up
       = form_for @user do |f|
-        First name: #{f.text_field :first_name}
-        %br/
-        Last name : #{f.text_field :last_name}
-        %br/
-        Email     : #{f.text_field :email}
-        %br/
-        Password  : #{f.password_field :password}
-        %br/
-        = f.submit "Singup", class: "btn btn-large btn-primary"
+        First name
+        = f.text_field :first_name
+        %br
+        Last name
+        = f.text_field :last_name
+        %br
+        Email     
+        = f.text_field :email
+        %br
+        Password   
+        = f.password_field :password
+        %br
+        = f.submit "Singup", class: "btn btn-large btn-primary center-align"

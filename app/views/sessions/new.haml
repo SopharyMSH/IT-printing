@@ -1,8 +1,14 @@
 .login
   .container
-    .form
-      %h1 Log in
+    .form.col.s12
+      %p.center-align Log in
       = form_for(:session, url: login_path) do |f|
-        = f.email_field :email, :placeholder => "Email"
-        = f.password_field :password, :placeholder => "Password"
-        = f.submit "Log in", class: "btn-submit"
+        .row
+          .input-field.col.s12
+            = f.email_field :email, placeholder: 'Email'
+        .row
+          .input-field.col.s12
+            = f.password_field :password, placeholder: 'Password'
+        .row
+          .col.s12.center-align
+            = f.submit "Log in", class: "waves-effect waves-light btn"

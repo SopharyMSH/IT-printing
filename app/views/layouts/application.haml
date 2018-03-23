@@ -7,18 +7,16 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    .header
-      .container
-        = link_to root_path do
-          = image_tag image_path('it-printing.png')
-        .nav.pull-right
-          - if current_user
-            %ul
-              %li= current_user.email
-              %li= link_to "Log out", logout_path, method: "delete"
-          - else
-            %ul
-              %li= link_to "Login", 'login'
-              %li= link_to "Signup", 'signup'
+    
+    / Import Google Icon Font
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    / Import materialize.css
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css", :rel => "stylesheet"}/
+    / Let browser know website is optimized for mobile
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %script{:src => "https://code.jquery.com/jquery-3.2.1.min.js", :type => "text/javascript"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"}
+    
+  %body  
+    = render 'shared/navbar'         
     = yield
